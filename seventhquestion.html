@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <script>
+            function checkEmail(){
+                let inputEmail = document.getElementById("emailInput").value;
+
+                var mailFormat = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+                if(inputEmail.match(mailFormat)){
+                    alert("Valid");
+                }
+                else{
+                    alert("Invalid");
+                }
+            }
+        </script>
+    </head>
+    <body>
+	<h1> Program to test if the email entered by the user is valid.</h1>
+        <input id="emailInput" type="text"/>
+        <input type="submit" value="Check" onclick="checkEmail()"/>
+    </body>
+</html>

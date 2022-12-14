@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <script>
+            function isArmstrongNumber(){
+                let inputNumber = parseInt(document.getElementById("myInputField").value);
+                let sumOfNumber = 0;
+                let tempNumber = inputNumber;
+
+                while(tempNumber!=0){
+                    let remainder = tempNumber % 10;
+                    sumOfNumber+=remainder*remainder*remainder;
+
+                    tempNumber = parseInt(tempNumber/10);
+                }
+
+                if(sumOfNumber == inputNumber){
+                    console.log(inputNumber+ " is Armstrong number.");
+                }
+                else{
+                    console.log(inputNumber+ " is not Armstrong number.");   
+                }
+
+            }
+        </script>
+    </head>
+	
+    <body>
+        <h1>A Javascript program to test if the number entered by the user is an Armstrong 
+            number.</h1>
+        <Label>Enter a number to check</Label>
+        <input id=myInputField type="string" placeholder="Enter a number"/>
+        <input type="submit" value="Check" onclick="isArmstrongNumber()"/>
+    </body>
+	
+</html>

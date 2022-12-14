@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <script>
+            function checkPrimeNumber(num){
+                let prime = true;
+                for(i=2;i<num;i++){
+                    if(num%i==0){
+                        prime = false;
+                        break
+                           
+                    }
+                }
+                return prime;
+            }
+
+            let outputString = "";
+            for(let i =2;i<=100;i++){
+                if(checkPrimeNumber(i)){
+                    outputString = outputString + i +" ";
+                }
+            }
+            console.log(outputString);
+        </script>
+    </head>
+
+    <tbody>
+        <h1>A Javascript program to display all the prime numbers between 1 to 100</h1>
+    </tbody>
+
+</html>

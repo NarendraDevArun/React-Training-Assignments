@@ -1,0 +1,78 @@
+<html>
+    <head>
+
+    </head>
+
+    <body>
+        <h1> - Digital Calculator - </h1>
+        <input type="text" id="InputScreen"/>
+        <table>
+            <tbody>
+                
+                <tr>
+                    <td><button onclick="OnButtonClick('7')">7</button></td>
+                    <td><button onclick="OnButtonClick('8')">8</button></td>
+                    <td><button onclick="OnButtonClick('9')">9</button></td>
+                    <td><button onclick="OnButtonClick('x')">X</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="OnButtonClick('4')">4</button></td>
+                    <td><button onclick="OnButtonClick('5')">5</button></td>
+                    <td><button onclick="OnButtonClick('6')">6</button></td>
+                    <td><button onclick="OnButtonClick('-')">-</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="OnButtonClick('1')">1</button></td>
+                    <td><button onclick="OnButtonClick('2')">2</button></td>
+                    <td><button onclick="OnButtonClick('3')">3</button></td>
+                    <td><button onclick="OnButtonClick('+')">+</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="OnButtonClick('c')">Cls</button></td>
+                    <td><button onclick="OnButtonClick('.')">.</button></td> 
+                    <td><button onclick="OnButtonClick('0')">0</button></td>
+                    <td><button onclick="OnButtonClick('/')">/</button></td>
+                    <td><button onclick="OnButtonClick('=')">=</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+    <script>
+        let displayScreen = document.getElementById("InputScreen");
+        displayScreen.value = "";
+        let tempData = '';
+        function OnButtonClick(buttonListner){
+            if(buttonListner == '='){
+                displayScreen.value = eval(displayScreen.value);
+            }
+            else if(buttonListner == 'x'){
+               
+                displayScreen.value = eval(displayScreen.value);
+                displayScreen.value += '*';
+            }
+            else if(buttonListner == '+'){
+                
+                displayScreen.value = eval(displayScreen.value);
+                displayScreen.value += buttonListner;
+            }
+            else if(buttonListner == '-'){
+                
+                displayScreen.value = eval(displayScreen.value);
+                displayScreen.value += buttonListner;
+            }
+            else if(buttonListner == '/'){
+                
+                displayScreen.value = eval(displayScreen.value);
+                displayScreen.value += buttonListner;
+            }
+            else if(buttonListner == 'c'){
+                displayScreen.value = "";
+                
+            }
+            else{
+                displayScreen.value += buttonListner;
+            }
+        }
+    </script>
+
+</html>

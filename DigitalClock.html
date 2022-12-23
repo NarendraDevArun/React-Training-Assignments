@@ -1,0 +1,34 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1> Current Time</h1>
+        <h2 id="DigitalClock"></h2>
+
+        <script>
+            setInterval(displayTime,1000);
+            function displayTime(){
+                let time = new Date();
+                let hour = time.getHours();
+                let min = time.getMinutes();
+                let sec = time.getSeconds();
+
+                let timeSet = "AM";
+
+                if(hour > 12){
+                    hour-=12;
+                    timeSet = "PM";
+                }
+                if(hour ==0){
+                    timeSet="AM";
+                }
+
+                document.getElementById("DigitalClock").innerHTML = hour + ":" + min + ":" + sec + " " + timeSet;
+
+                
+            }
+            displayTime();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,75 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>___My Notes___</h1>
+        <p>type your note in box & click button to add</p>
+        <input id="NewNote" style="width: 400px; height: 100px;" type="text"/>
+        <button style="background-color: rgb(30, 203, 114); color: black;" onclick="AddNotes()">Add My Note</button>
+
+        <p>Show My Notes</p>
+        <div id="totalNotes">
+
+        </div>
+    </body>
+    <script>
+        showMyNotes();
+        function AddNotes(){
+            let noteText = document.getElementById("NewNote");
+            let notes = localStorage.getItem("SavedNotes");
+
+            let notesRecord;
+            if(notes==null){
+                notesRecord = [];
+            }
+            else{
+                notesRecord = JSON.parse(notes);
+            }
+
+            notesRecord.push(noteText.value);
+            localStorage.setItem("SavedNotes",JSON.stringify(notesRecord));
+            noteText.value = "";
+            showMyNotes();
+        }
+
+        function deleteNote(record) {
+            let notes = localStorage.getItem("SavedNotes");
+            let notesRecordList
+            if(notes==null){
+                notesRecordList=[];
+            }
+            else{
+                notesRecordList = JSON.parse(notes);
+            }
+
+            notesRecordList.splice(record,1);
+            localStorage.setItem("SavedNotes",JSON.stringify(notesRecordList));
+            showMyNotes();
+
+            
+        }
+
+        function showMyNotes(){
+                let notesRecord = localStorage.getItem("SavedNotes");
+                let showRecord = document.getElementById("totalNotes");
+                let notesRecordList;
+                if(notesRecord == null){
+                    notesRecordList = [];
+                }
+                else{
+                    notesRecordList = JSON.parse(notesRecord);
+                }
+                let record = "";
+                notesRecordList.forEach(function(element,index) {
+                    record+=`
+                        <h5> Note- ${index+1}</h5>
+                        <p>${element}</p>
+                        <button  id="${index}" onclick="deleteNote(this.id)">Delete</button>
+                    `;
+                });
+                if(notesRecordList.length!=0){
+                    showRecord.innerHTML = record;
+                }
+        }
+    </script>
+</html>
